@@ -1,4 +1,8 @@
 [build]
-  command = "pip install -r requirements.txt"
+  publish = "."        # serve index.html and /static from repo root
   functions = "netlify/functions"
-  publish = "static"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
