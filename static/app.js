@@ -80,11 +80,13 @@ function addRow(prefill=null){
 
   // Day
   const tdDay = document.createElement("td");
+  tdDay.setAttribute("data-label", "Day");
   const daySel = createDaySelect(prefill?.day);
   tdDay.appendChild(daySel);
 
   // Description
   const tdDesc = document.createElement("td");
+  tdDesc.setAttribute("data-label", "Description");
   const desc = document.createElement("input");
   desc.className = "form-control form-control-sm";
   desc.placeholder = "e.g. Lunch, Coffee...";
@@ -93,11 +95,13 @@ function addRow(prefill=null){
 
   // Payer
   const tdPayer = document.createElement("td");
+  tdPayer.setAttribute("data-label", "Payer");
   const payerSel = createPayerSelect(prefill?.payer);
   tdPayer.appendChild(payerSel);
 
   // Amount
   const tdAmt = document.createElement("td");
+  tdAmt.setAttribute("data-label", "Amount (€)");
   const amt = document.createElement("input");
   amt.type = "number"; amt.min = "0"; amt.step = "0.01";
   amt.className = "form-control form-control-sm amount-input";
@@ -107,6 +111,7 @@ function addRow(prefill=null){
 
   // Shares
   const tdShares = document.createElement("td");
+  tdShares.setAttribute("data-label", "Per-person shares");
   const sharesWrap = createSharesEditor(prefill?.shares || {});
   tdShares.appendChild(sharesWrap);
 
@@ -143,6 +148,7 @@ function addRow(prefill=null){
 
   // Delete row
   const tdDel = document.createElement("td");
+  tdDel.setAttribute("data-label", "Actions");
   const delBtn = document.createElement("button");
   delBtn.className = "btn btn-outline-danger btn-sm";
   delBtn.textContent = "✕";
